@@ -1,41 +1,122 @@
-# Accessible Voice Assistant
+# Accessible Voice Assistant (Web + Voice)
 
-This is a simple AI-based voice assistant built to help visually impaired users interact with their computer using voice commands.
+A simple voice assistant with a web interface, supporting both text and speech input, powered by Flask and the Web Speech API.
 
 ## Features
-- Voice recognition using Google API
-- Text-to-speech responses
-- Commands like:
-  - "What is the time?"
-  - "Open YouTube"
-  - "Open Notepad"
+
+- Type or speak commands in your browser
+- Handles commands like "time", "open youtube", "open notepad", etc.
+- User-friendly, responsive web UI
 
 ## Requirements
 
-Install required packages using pip:
+- Python 3.x
+- Flask (`pip install flask`)
+- Google Chrome (for best speech recognition support)
 
-```
-pip install SpeechRecognition pyttsx3 pyaudio
-```
+## Setup
 
-If `pyaudio` fails, run:
+1. **Clone or download this repository.**
 
-```
-pip install pipwin
-pipwin install pyaudio
-```
+2. **Install dependencies:**
+   ```
+   pip install flask
+   ```
 
-## Running the App
+3. **Project structure:**
+   ```
+   AccessibleVoiceAssistant/
+   ├── voice_assistant_server.py
+   ├── static/
+   │   ├── style.css
+   │   └── script.js
+   └── templates/
+       └── index.html
+   ```
 
-Run the assistant using:
+4. **Run the Flask server:**
+   ```
+   python voice_assistant_server.py
+   ```
 
-```
-python voice_assistant.py
-```
+5. **Open your browser and go to:**
+   ```
+   http://127.0.0.1:5000/
+   ```
 
-## Future Scope
-- Integrate OCR for reading text from images
-- Add chatbot integration (like GPT)
-- GUI support
+6. **Usage:**
+   - Type a command or click the 🎤 Speak button and say a command.
+   - Example commands:  
+     - `What time is it?`  
+     - `Open YouTube`  
+     - `Open Notepad`  
+     - `Help`  
+     - `Exit`
 
-y
+## Notes
+
+- For speech recognition, use Google Chrome and allow microphone access.
+- Some commands (like opening Notepad) will only work on Windows.
+- The backend runs commands on the server machine, not the client.
+
+---
+```# Accessible Voice Assistant (Web + Voice)
+
+A simple voice assistant with a web interface, supporting both text and speech input, powered by Flask and the Web Speech API.
+
+## Features
+
+- Type or speak commands in your browser
+- Handles commands like "time", "open youtube", "open notepad", etc.
+- User-friendly, responsive web UI
+
+## Requirements
+
+- Python 3.x
+- Flask (`pip install flask`)
+- Google Chrome (for best speech recognition support)
+
+## Setup
+
+1. **Clone or download this repository.**
+
+2. **Install dependencies:**
+   ```
+   pip install flask
+   ```
+
+3. **Project structure:**
+   ```
+   AccessibleVoiceAssistant/
+   ├── voice_assistant_server.py
+   ├── static/
+   │   ├── style.css
+   │   └── script.js
+   └── templates/
+       └── index.html
+   ```
+
+4. **Run the Flask server:**
+   ```
+   python voice_assistant_server.py
+   ```
+
+5. **Open your browser and go to:**
+   ```
+   http://127.0.0.1:5000/
+   ```
+
+6. **Usage:**
+   - Type a command or click the 🎤 Speak button and say a command.
+   - Example commands:  
+     - `What time is it?`  
+     - `Open YouTube`  
+     - `Open Notepad`  
+     - `Help`  
+     - `Exit`
+
+## Notes
+
+- For speech recognition, use Google Chrome and allow microphone access.
+- Some commands (like opening Notepad) will only work on Windows.
+- The backend runs commands on the server machine, not the client.
