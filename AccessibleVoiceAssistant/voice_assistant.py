@@ -27,8 +27,22 @@ def listen():
         speak("Sorry, my speech service is down.")
         return ""
 
+def get_confirmation():
+    for _ in range(2):
+        response = listen()
+        if any(word in response for word in ["yes", "sure", "go ahead", "okay"]):
+            return True
+        elif any(word in response for word in ["no", "cancel", "stop"]):
+            return False
+        else:
+            speak("Sorry, I didn't understand. Please say yes or no.")
+    speak("No response detected. Cancelling the command.")
+    return False
+
 def process_command(command):
-    if "time" in command:
+    if "help" in command:
+        speak("You can ask me to tell the time, open YouTube, open Notepad, or run any command. Say exit or quit to stop.")
+    elif "time" in command:
         time = datetime.datetime.now().strftime("%I:%M %p")
         speak(f"The time is {time}")
     elif "open youtube" in command:
@@ -41,11 +55,20 @@ def process_command(command):
         speak("Goodbye!")
         exit()
     else:
-        speak("Sorry, I don't know that command.")
+        speak(f"You said: {command}. Do you want to run this command? Please say yes or no.")
+        if get_confirmation():
+            speak(f"Running command: {command}")
+            try:
+                os.system(command)
+            except Exception as e:
+                speak(f"Failed to run the command: {e}")
+        else:
+            speak("Okay, command not executed.")
 
 # Main loop
-speak("Hi, I am your assistant. How can I help you?")
+speak("Hi, I am your assistant. Say 'help' to know what I can do. How can I help you?")
 while True:
+    speak("I'm listening for your command.")
     user_command = listen()
     if user_command:
         process_command(user_command)

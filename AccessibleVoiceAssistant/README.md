@@ -38,3 +38,4 @@ python voice_assistant.py
 - Add chatbot integration (like GPT)
 - GUI support
 
+y
