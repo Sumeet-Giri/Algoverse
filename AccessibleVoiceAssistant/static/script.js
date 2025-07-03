@@ -60,3 +60,7 @@ function startListening() {
 document.getElementById('commandInput').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') sendCommand();
 });
+// Register service worker for PWA support
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/static/service-worker.js');
+}
